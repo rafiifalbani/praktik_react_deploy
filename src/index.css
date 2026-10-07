@@ -1,0 +1,435 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a2e;
+  font-family: 'Press Start 2P', monospace;
+  color: #fff;
+}
+
+/* ===== BINGKAI TV ===== */
+.tv {
+  width: min(92vw, 760px);
+  background: #6b4f3a;
+  border: 6px solid #3d2b1f;
+  border-radius: 28px;
+  padding: 24px 24px 16px;
+  box-shadow: 0 12px 0 #2a1d14, 0 24px 40px rgba(0, 0, 0, 0.6);
+}
+
+.tv-screen {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: #0b0b1a;
+  border: 8px solid #2a1d14;
+  border-radius: 40px / 32px;
+  overflow: hidden;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.9);
+}
+
+.tv-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Garis-garis scanline di atas layar */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.25) 3px
+  );
+}
+
+/* ===== PANEL BAWAH TV ===== */
+.tv-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  font-size: 10px;
+}
+
+.tv-brand {
+  color: #c9a27e;
+  letter-spacing: 2px;
+}
+
+.tv-led-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tv-led-label {
+  color: #c9a27e;
+  font-size: 8px;
+}
+
+/* ===== LED ===== */
+.tv-led {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #2a1d14;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.led-red {
+  background: #ff3b3b;
+  box-shadow: 0 0 10px #ff3b3b;
+}
+
+.led-green {
+  background: #3bff6b;
+  box-shadow: 0 0 10px #3bff6b;
+}
+
+.led-off {
+  background: #3a1d1d;
+  box-shadow: none;
+}
+
+/* ===== TEKS BERKEDIP ===== */
+.blink {
+  font-size: clamp(14px, 3vw, 24px);
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* ===== MENU ===== */
+.menu {
+  list-style: none;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  font-size: clamp(12px, 3vw, 20px);
+  color: #8a8aa8;
+  margin: 18px 0;
+  cursor: pointer;
+}
+
+.menu-item.active {
+  color: #fff;
+}
+
+.cursor {
+  display: inline-block;
+  width: 1.6em;
+  color: #ffd84a;
+  animation: blink 0.8s steps(2, start) infinite;
+}
+
+/* Tombol sementara */
+.temp-btn {
+  margin-top: 24px;
+  font-family: inherit;
+  font-size: 12px;
+  padding: 10px 16px;
+  background: #ffd84a;
+  border: 3px solid #c0392b;
+  cursor: pointer;
+}
+
+/* ===== KONFIRMASI ===== */
+.confirm-options {
+  display: flex;
+  gap: 48px;
+}
+
+/* ===== GAME OVER ===== */
+.game-over {
+  font-size: clamp(22px, 6vw, 44px);
+  color: #ff3b3b;
+  text-shadow: 4px 4px 0 #5a0f0f;
+  margin-bottom: 32px;
+  animation: shake 0.4s steps(2) infinite;
+}
+
+.continue-text {
+  font-size: clamp(12px, 3vw, 18px);
+  color: #fff;
+}
+
+@keyframes shake {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(3px, -2px); }
+  100% { transform: translate(-3px, 2px); }
+}
+
+/* ===== FORM LOGIN ===== */
+.game-title.small {
+  font-size: clamp(14px, 3.5vw, 24px);
+  margin-bottom: 24px;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.field span {
+  font-size: clamp(8px, 1.8vw, 11px);
+  color: #ffd84a;
+}
+
+.field input {
+  font-family: inherit;
+  font-size: clamp(10px, 2.2vw, 14px);
+  color: #3bff6b;
+  background: #05050f;
+  border: 3px solid #8a8aa8;
+  padding: 10px;
+  outline: none;
+  letter-spacing: 2px;
+}
+
+.field input:focus {
+  border-color: #ffd84a;
+}
+
+.field input:disabled {
+  opacity: 0.6;
+}
+
+.login-message {
+  min-height: 1.4em;
+  margin-bottom: 12px;
+  font-size: clamp(8px, 1.8vw, 11px);
+  color: #ff3b3b;
+}
+
+.login-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.pixel-btn {
+  font-family: inherit;
+  font-size: clamp(10px, 2.2vw, 14px);
+  padding: 10px 18px;
+  color: #1a1a2e;
+  background: #ffd84a;
+  border: 3px solid #c0392b;
+  box-shadow: 4px 4px 0 #5a0f0f;
+  cursor: pointer;
+}
+
+.pixel-btn.alt {
+  background: #8a8aa8;
+  border-color: #3d3d5c;
+  box-shadow: 4px 4px 0 #1f1f33;
+}
+
+.pixel-btn:hover {
+  filter: brightness(1.15);
+}
+
+.pixel-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 #5a0f0f;
+}
+
+.hint {
+  margin-top: 18px;
+  font-size: 8px;
+  color: #5c5c7a;
+}
+
+/* ===== LOADING BAR ===== */
+.loading-bar {
+  width: 100%;
+  height: 20px;
+  border: 3px solid #fff;
+  padding: 2px;
+}
+
+.loading-fill {
+  height: 100%;
+  width: 0;
+  background: #3bff6b;
+  animation: fill 1.5s steps(10) forwards;
+}
+
+@keyframes fill {
+  to { width: 100%; }
+}
+
+/* ===== GETAR SAAT SALAH ===== */
+.shake-box {
+  animation: shake 0.1s steps(2) 4;
+}
+
+/* ===== LAYAR SUKSES ===== */
+.welcome-small {
+  font-size: clamp(10px, 2.4vw, 16px);
+  margin-bottom: 20px;
+}
+
+.mute-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c9a27e;
+  background: #3d2b1f;
+  border: 2px solid #2a1d14;
+  padding: 4px 6px;
+  cursor: pointer;
+}
+
+.mute-btn:hover {
+  color: #fff;
+  background: #4d3727;
+}
+
+.mute-btn.is-muted {
+  color: #8a6f58;
+}
+
+/* ===== ABOUT ===== */
+.about {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-list {
+  width: 100%;
+  margin-bottom: 24px;
+  border: 3px solid #8a8aa8;
+  background: #05050f;
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.about-row {
+  margin: 10px 0;
+}
+
+.about-row dt {
+  font-size: clamp(8px, 1.8vw, 10px);
+  color: #ffd84a;
+  margin-bottom: 6px;
+}
+
+.about-row dd {
+  font-size: clamp(9px, 2vw, 12px);
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* ===== PANEL KONTROL (MUTE + LED) ===== */
+.tv-controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* ===== TRANSISI ANTAR LAYAR ===== */
+.screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: screen-in 0.4s steps(4) both;
+}
+
+@keyframes screen-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ===== EFEK TV MENYALA ===== */
+.tv-screen {
+  animation: crt-on 0.7s ease-out;
+}
+
+@keyframes crt-on {
+  0%   { transform: scale(1, 0.005); filter: brightness(4); }
+  60%  { transform: scale(1, 0.005); filter: brightness(4); }
+  100% { transform: scale(1, 1); filter: brightness(1); }
+}
+
+/* ===== LAYAR KECIL (HP) ===== */
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  .tv {
+    padding: 14px 14px 12px;
+    border-width: 4px;
+    border-radius: 20px;
+  }
+
+  .tv-screen {
+    aspect-ratio: auto;
+    height: 72vh;
+    min-height: 420px;
+    max-height: 520px;
+    border-width: 6px;
+  }
+
+  .tv-content {
+    padding: 12px;
+    overflow-y: auto;
+  }
+
+  .tv-brand {
+    font-size: 8px;
+  }
+
+  .confirm-options {
+    gap: 24px;
+  }
+}
+
+/* ===== HORMATI PENGGUNA YANG MENGURANGI ANIMASI ===== */
+@media (prefers-reduced-motion: reduce) {
+  .screen,
+  .tv-screen,
+  .game-over,
+  .shake-box {
+    animation: none;
+  }
+} 
