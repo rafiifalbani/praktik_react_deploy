@@ -1,16 +1,30 @@
-# React + Vite
+LOGIN QUEST XII
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Formulir login bergaya video game 8-bit di dalam layar TV tabung jadul, dibuat dengan React.
 
-Currently, two official plugins are available:
+Demo: https://praktikreactdeploymohdrafiifalbani.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Identitas
+Nama: Mohd. Rafiif Albani
+NIM: 4243250036
+Kelas: PSIK-24A
+Universitas: Universitas Negeri Medan
+Mata kuliah: Pemrograman Web Modern
+Dosen pengampu: Insan Taufik, S.Kom., M.Kom
+Tugas: Project 1
 
-## React Compiler
+Tentang Project
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Tugas ini meminta formulir yang estetik dan merepresentasikan kehidupan sehari-hari. Formulir dibuat seperti menyalakan TV dan konsol game: alurnya Press Any Key, menu, login, lalu Game Over. Lampu LED di panel TV berubah warna mengikuti layar (merah, hijau, mati). Efek suara 8-bit dibuat dengan Web Audio API, tanpa backend.
 
-## Expanding the ESLint configuration
+Akun demo: PLAYER1 / 1234
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Menjalankan
+bash
+git clone https://github.com/rafiifalbani/praktik_react_deploy.git
+cd praktik_react_deploy
+npm install
+npm run dev
+
+Teknologi
+React, Vite, CSS, Web Audio API
